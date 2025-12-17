@@ -1,0 +1,93 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { AuthorAvatar } from '@/components/AuthorAvatar';
+import { getAuthorAvatar } from '@/lib/authors';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<Layout title='Votar Blog'>
+  <main class='container mx-auto px-4 py-8'>
+    <section class='max-w-4xl mx-auto space-y-8'>
+      <div class='text-center space-y-4 py-8'>
+        <h1 class='text-4xl font-bold tracking-tight lg:text-5xl'>
+          Welcome to our Blog
+        </h1>
+        <p class='text-xl text-muted-foreground'>
+          Thoughts, stories and ideas.
+        </p>
+      </div>
+
+      <div class='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+        {
+          posts.map((post) => (
+            <a href={`/blog/${post.slug}`} class='group'>
+              <Card className='h-full transition-all hover:shadow-lg'>
+                <CardHeader>
+                  {post.data.heroImage && (
+                    <img
+                      src={post.data.heroImage}
+                      alt={post.data.title}
+                      class='rounded-t-lg object-cover w-full h-48 mb-4'
+                    />
+                  )}
+                  <div>
+                    {post.data.tags &&
+                      post.data.tags.map((tag) => (
+                        <Badge variant='secondary' className='mr-2 mb-2'>
+                          {tag}
+                        </Badge>
+                      ))}
+                  </div>
+                  <CardTitle className='group-hover:text-primary transition-colors'>
+                    {post.data.title}
+                  </CardTitle>
+                  <CardDescription>
+                    {post.data.pubDate.toLocaleDateString()}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p class='text-muted-foreground line-clamp-3'>
+                    {post.data.description}
+                  </p>
+                </CardContent>
+                <CardFooter className='flex items-center gap-2'>
+                  {post.data.authors && post.data.authors.length > 0 && (
+                    <>
+                      {post.data.authors.map((author, index) => (
+                        <>
+                          <AuthorAvatar
+                            name={author}
+                            src={getAuthorAvatar(author)}
+                            client:load
+                          />
+                          <span class='text-sm text-muted-foreground'>
+                            {author}
+                            {index < post.data.authors.length - 1 && ' & '}
+                          </span>
+                        </>
+                      ))}
+                    </>
+                  )}
+                </CardFooter>
+              </Card>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+</Layout>
+```

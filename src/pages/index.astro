@@ -1,0 +1,429 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { CostComparisonChart } from '@/components/CostComparisonChart';
+
+import {
+  Check,
+  Shield,
+  Clock,
+  DollarSign,
+  Users,
+  Lock,
+  Github,
+  FileText,
+  Globe,
+  Building2,
+  Handshake,
+  GraduationCap,
+  Heart,
+} from 'lucide-react';
+---
+
+<Layout
+  title='VotAR - Votá desde WhatsApp'
+  description='La plataforma de participación cívica que lleva la democracia al siglo XXI. Seguro, privado, simple.'
+>
+  <div class='min-h-screen bg-background'>
+    {/* Header */}
+
+    {/* Hero Section */}
+    <section class='py-20 md:py-32'>
+      <div class='container mx-auto px-4'>
+        <div class='max-w-4xl mx-auto text-center space-y-8'>
+          <div class='inline-block'>
+            <div
+              class='inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-muted text-sm'
+            >
+              <span class='w-2 h-2 rounded-full bg-accent animate-pulse'></span>
+              <span class='text-muted-foreground'
+                >Construido en público, auditado y transparente</span
+              >
+            </div>
+          </div>
+          <h1
+            class='text-5xl md:text-7xl font-bold tracking-tight text-balance'
+          >
+            Votá desde WhatsApp. Seguro, Privado, Simple.
+          </h1>
+          <p
+            class='text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto text-balance'
+          >
+            La plataforma de participación cívica que lleva la democracia al
+            siglo XXI. Sin apps nuevas, sin centros de votación, sin excusas.
+          </p>
+          <div
+            class='flex flex-col sm:flex-row items-center justify-center gap-4 pt-4'
+          >
+            <Button size='lg' className='text-base px-8'>
+              Empezar Ahora
+            </Button>
+            <Button
+              size='lg'
+              variant='outline'
+              className='text-base px-8 bg-transparent'
+            >
+              Conocé Más
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Problem Section */}
+    <section class='py-20 bg-muted/30'>
+      <div class='container mx-auto px-4'>
+        <div class='max-w-4xl mx-auto text-center space-y-12'>
+          <h2 class='text-3xl md:text-5xl font-bold text-balance'>
+            El Sistema Actual No Funciona
+          </h2>
+          <div class='grid md:grid-cols-2 gap-6'>
+            <Card className='border-destructive/20'>
+              <CardContent className='p-6 space-y-2'>
+                <DollarSign className='w-10 h-10 text-destructive mb-2' />
+                <h3 class='text-xl font-semibold'>Costos Prohibitivos</h3>
+                <p class='text-muted-foreground'>
+                  Votaciones que cuestan hasta{' '}
+                  <span class='text-foreground font-semibold'
+                    >$16 USD por persona</span
+                  >
+                </p>
+              </CardContent>
+            </Card>
+            <Card className='border-destructive/20'>
+              <CardContent className='p-6 space-y-2'>
+                <Clock className='w-10 h-10 text-destructive mb-2' />
+                <h3 class='text-xl font-semibold'>Procesos Lentos</h3>
+                <p class='text-muted-foreground'>
+                  Procesos que <span class='text-foreground font-semibold'
+                    >tardan semanas</span
+                  > en organizarse
+                </p>
+              </CardContent>
+            </Card>
+            <Card className='border-destructive/20'>
+              <CardContent className='p-6 space-y-2'>
+                <Users className='w-10 h-10 text-destructive mb-2' />
+                <h3 class='text-xl font-semibold'>Quórums Inalcanzables</h3>
+                <p class='text-muted-foreground'>
+                  Quórums que <span class='text-foreground font-semibold'
+                    >nunca se alcanzan</span
+                  >
+                </p>
+              </CardContent>
+            </Card>
+            <Card className='border-destructive/20'>
+              <CardContent className='p-6 space-y-2'>
+                <FileText className='w-10 h-10 text-destructive mb-2' />
+                <h3 class='text-xl font-semibold'>Información Perdida</h3>
+                <p class='text-muted-foreground'>
+                  Información <span class='text-foreground font-semibold'
+                    >perdida entre emails</span
+                  > y grupos de WhatsApp
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+          <div class='pt-12'>
+            <CostComparisonChart client:load />
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  {/* Solution Section */}
+  <section id='beneficios' class='py-20'>
+    <div class='container mx-auto px-4'>
+      <div class='max-w-5xl mx-auto space-y-12'>
+        <div class='text-center space-y-4'>
+          <h2 class='text-3xl md:text-5xl font-bold text-balance'>
+            VotAR Cambia Todo
+          </h2>
+        </div>
+        <div class='grid md:grid-cols-3 gap-6'>
+          <Card className='border-accent/40 bg-accent/5'>
+            <CardContent className='p-6 space-y-3'>
+              <div
+                class='w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center'
+              >
+                <Globe className='w-6 h-6 text-accent' />
+              </div>
+              <h3 class='text-lg font-semibold'>Votá desde cualquier lugar</h3>
+              <p class='text-muted-foreground text-sm'>Tu celular es tu urna</p>
+            </CardContent>
+          </Card>
+          <Card className='border-accent/40 bg-accent/5'>
+            <CardContent className='p-6 space-y-3'>
+              <div
+                class='w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center'
+              >
+                <DollarSign className='w-6 h-6 text-accent' />
+              </div>
+              <h3 class='text-lg font-semibold'>85% más barato</h3>
+              <p class='text-muted-foreground text-sm'>
+                Menos de $1 USD por voto
+              </p>
+            </CardContent>
+          </Card>
+          <Card className='border-accent/40 bg-accent/5'>
+            <CardContent className='p-6 space-y-3'>
+              <div
+                class='w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center'
+              >
+                <Clock className='w-6 h-6 text-accent' />
+              </div>
+              <h3 class='text-lg font-semibold'>Resultados en tiempo real</h3>
+              <p class='text-muted-foreground text-sm'>Sin conteos manuales</p>
+            </CardContent>
+          </Card>
+          <Card className='border-accent/40 bg-accent/5'>
+            <CardContent className='p-6 space-y-3'>
+              <div
+                class='w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center'
+              >
+                <Lock className='w-6 h-6 text-accent' />
+              </div>
+              <h3 class='text-lg font-semibold'>Privacidad garantizada</h3>
+              <p class='text-muted-foreground text-sm'>
+                Tecnología de conocimiento cero
+              </p>
+            </CardContent>
+          </Card>
+          <Card className='border-accent/40 bg-accent/5'>
+            <CardContent className='p-6 space-y-3'>
+              <div
+                class='w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center'
+              >
+                <Clock className='w-6 h-6 text-accent' />
+              </div>
+              <h3 class='text-lg font-semibold'>Ventanas más largas</h3>
+              <p class='text-muted-foreground text-sm'>Días en vez de horas</p>
+            </CardContent>
+          </Card>
+          <Card className='border-accent/40 bg-accent/5'>
+            <CardContent className='p-6 space-y-3'>
+              <div
+                class='w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center'
+              >
+                <Check className='w-6 h-6 text-accent' />
+              </div>
+              <h3 class='text-lg font-semibold'>Sin apps nuevas</h3>
+              <p class='text-muted-foreground text-sm'>
+                Ya sabés usar WhatsApp
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Trust Section */}
+  <section id='confianza' class='py-20 bg-muted/30'>
+    <div class='container mx-auto px-4'>
+      <div class='max-w-4xl mx-auto text-center space-y-8'>
+        <h2 class='text-3xl md:text-5xl font-bold text-balance'>
+          Construido en Público, Construido con Transparencia
+        </h2>
+        <p class='text-xl text-muted-foreground text-balance leading-relaxed'>
+          La infraestructura de votación debe ganarse la confianza. Por eso
+          VotAR es código abierto, auditado públicamente y respaldado por
+          blockchain. Cada voto es verificable, cada proceso es transparente.
+        </p>
+        <div class='flex flex-wrap items-center justify-center gap-8 pt-8'>
+          <div class='flex flex-col items-center gap-2'>
+            <div
+              class='w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center'
+            >
+              <Github className='w-8 h-8 text-primary' />
+            </div>
+            <span class='text-sm font-medium'>Código Abierto</span>
+          </div>
+          <div class='flex flex-col items-center gap-2'>
+            <div
+              class='w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center'
+            >
+              <Shield className='w-8 h-8 text-primary' />
+            </div>
+            <span class='text-sm font-medium'>Auditado</span>
+          </div>
+          <div class='flex flex-col items-center gap-2'>
+            <div
+              class='w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center'
+            >
+              <FileText className='w-8 h-8 text-primary' />
+            </div>
+            <span class='text-sm font-medium'>Blockchain</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Target Audience Section */}
+  <section id='instituciones' class='py-20'>
+    <div class='container mx-auto px-4'>
+      <div class='max-w-5xl mx-auto space-y-12'>
+        <div class='text-center space-y-4'>
+          <h2 class='text-3xl md:text-5xl font-bold text-balance'>
+            Para Cada Institución Argentina
+          </h2>
+        </div>
+        <div class='grid md:grid-cols-3 gap-6'>
+          <Card>
+            <CardContent
+              className='p-6 flex flex-col items-center text-center space-y-3'
+            >
+              <div
+                class='w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center'
+              >
+                <Building2 className='w-7 h-7 text-primary' />
+              </div>
+              <h3 class='text-lg font-semibold'>Asociaciones vecinales</h3>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent
+              className='p-6 flex flex-col items-center text-center space-y-3'
+            >
+              <div
+                class='w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center'
+              >
+                <Handshake className='w-7 h-7 text-primary' />
+              </div>
+              <h3 class='text-lg font-semibold'>Cooperativas</h3>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent
+              className='p-6 flex flex-col items-center text-center space-y-3'
+            >
+              <div
+                class='w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center'
+              >
+                <Users className='w-7 h-7 text-primary' />
+              </div>
+              <h3 class='text-lg font-semibold'>Sindicatos</h3>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent
+              className='p-6 flex flex-col items-center text-center space-y-3'
+            >
+              <div
+                class='w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center'
+              >
+                <GraduationCap className='w-7 h-7 text-primary' />
+              </div>
+              <h3 class='text-lg font-semibold'>Universidades</h3>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent
+              className='p-6 flex flex-col items-center text-center space-y-3'
+            >
+              <div
+                class='w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center'
+              >
+                <Building2 className='w-7 h-7 text-primary' />
+              </div>
+              <h3 class='text-lg font-semibold'>Municipalidades</h3>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent
+              className='p-6 flex flex-col items-center text-center space-y-3'
+            >
+              <div
+                class='w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center'
+              >
+                <Heart className='w-7 h-7 text-primary' />
+              </div>
+              <h3 class='text-lg font-semibold'>ONGs</h3>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Final CTA */}
+  <section class='py-20 bg-primary text-primary-foreground'>
+    <div class='container mx-auto px-4'>
+      <div class='max-w-3xl mx-auto text-center space-y-8'>
+        <h2 class='text-3xl md:text-5xl font-bold text-balance'>
+          Argentina Puede Liderar la Democracia del Siglo XXI
+        </h2>
+        <p class='text-xl text-primary-foreground/90 text-balance'>
+          Seamos el ejemplo global de cómo debería funcionar la participación
+          democrática. Unite a nosotros.
+        </p>
+        <div
+          class='flex flex-col sm:flex-row items-center justify-center gap-4 pt-4'
+        >
+          <Button size='lg' variant='secondary' className='text-base px-8'>
+            Programar Demo
+          </Button>
+          <Button
+            size='lg'
+            variant='outline'
+            className='text-base px-8 bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary'
+          >
+            Contactar al Equipo
+          </Button>
+        </div>
+        <div class='pt-4'>
+          <a href='/blog'>
+            <Button
+              variant='link'
+              className='text-primary-foreground/80 hover:text-primary-foreground'
+            >
+              Ver Documentación →
+            </Button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Footer */}
+  <footer class='py-12 border-t border-border'>
+    <div class='container mx-auto px-4'>
+      <div class='flex flex-col md:flex-row items-center justify-between gap-6'>
+        <div class='flex items-center gap-2'>
+          <div
+            class='w-8 h-8 bg-primary rounded-lg flex items-center justify-center'
+          >
+            <Check className='w-5 h-5 text-primary-foreground' />
+          </div>
+          <span class='text-lg font-bold'>VotAR</span>
+        </div>
+        <p class='text-sm text-muted-foreground text-center'>
+          © 2025 VotAR. Construyendo la democracia del siglo XXI.
+        </p>
+        <div class='flex items-center gap-4'>
+          <a
+            href='#'
+            class='text-sm text-muted-foreground hover:text-foreground transition-colors'
+          >
+            GitHub
+          </a>
+          <a
+            href='#'
+            class='text-sm text-muted-foreground hover:text-foreground transition-colors'
+          >
+            Documentación
+          </a>
+          <a
+            href='#'
+            class='text-sm text-muted-foreground hover:text-foreground transition-colors'
+          >
+            Contacto
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</Layout>

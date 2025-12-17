@@ -1,0 +1,91 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { Badge } from '@/components/ui/badge';
+import { AuthorAvatar } from '@/components/AuthorAvatar';
+import { Separator } from '@/components/ui/separator';
+import { getAuthorAvatar } from '@/lib/authors';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+type Props = CollectionEntry<'blog'>;
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout title={post.data.title} description={post.data.description}>
+  <main class='container mx-auto px-4 py-8'>
+    <article class='max-w-3xl mx-auto py-8'>
+      <div class='space-y-4 mb-8 text-center'>
+        <div class='flex justify-center gap-2'>
+          {
+            post.data.tags &&
+              post.data.tags.map((tag) => (
+                <Badge variant='secondary'>{tag}</Badge>
+              ))
+          }
+        </div>
+        <h1 class='text-4xl font-extrabold tracking-tight lg:text-5xl'>
+          {post.data.title}
+        </h1>
+        <div
+          class='flex items-center justify-center gap-4 text-muted-foreground'
+        >
+          {
+            post.data.authors && post.data.authors.length > 0 && (
+              <div class='flex items-center gap-2'>
+                {post.data.authors.map((author, index) => (
+                  <>
+                    <AuthorAvatar
+                      name={author}
+                      src={getAuthorAvatar(author)}
+                      client:load
+                    />
+                    <span>{author}</span>
+                    {index < post.data.authors.length - 1 && (
+                      <span class='mx-1'>&</span>
+                    )}
+                  </>
+                ))}
+              </div>
+            )
+          }
+          <Separator orientation='vertical' className='h-4' />
+          <time datetime={post.data.pubDate.toISOString()}>
+            {
+              post.data.pubDate.toLocaleDateString(undefined, {
+                dateStyle: 'long',
+              })
+            }
+          </time>
+        </div>
+      </div>
+
+      {
+        post.data.heroImage && (
+          <div class='relative w-full aspect-video mb-8 overflow-hidden rounded-lg border bg-muted'>
+            <img
+              width={1200}
+              height={630}
+              src={post.data.heroImage}
+              alt=''
+              class='object-cover w-full h-full'
+            />
+          </div>
+        )
+      }
+
+      <div
+        class='prose max-w-none dark:prose-invert prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-li:text-muted-foreground prose-code:text-foreground prose-a:text-primary hover:prose-a:text-primary/80'
+      >
+        <Content />
+      </div>
+    </article>
+  </main>
+</Layout>
