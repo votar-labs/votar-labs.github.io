@@ -18,6 +18,7 @@ import {
   Handshake,
   GraduationCap,
   Heart,
+  SearchCheck
 } from 'lucide-react';
 ---
 
@@ -33,14 +34,14 @@ import {
       <div class='container mx-auto px-4'>
         <div class='max-w-4xl mx-auto text-center space-y-8'>
           <div class='inline-block'>
-            <div
+            <!-- <div
               class='inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-muted text-sm'
             >
               <span class='w-2 h-2 rounded-full bg-accent animate-pulse'></span>
               <span class='text-muted-foreground'
                 >Construido en público, auditado y transparente</span
               >
-            </div>
+            </div> -->
           </div>
           <h1
             class='text-5xl md:text-7xl font-bold tracking-tight text-balance'
@@ -56,15 +57,15 @@ import {
           <div
             class='flex flex-col sm:flex-row items-center justify-center gap-4 pt-4'
           >
-            <Button size='lg' className='text-base px-8'>
-              Empezar Ahora
+            <Button size='lg' className='text-base font-bold w-60 px-8' >
+              <a href='https://tally.so/r/NpDWZB' target='_blank' rel="noopener noreferrer">Sumate a la lista</a>
             </Button>
             <Button
               size='lg'
               variant='outline'
               className='text-base px-8 bg-transparent'
             >
-              Conocé Más
+              <a href='https://tally.so/r/eqDe1E' target='_blank' rel="noopener noreferrer">Participá del piloto</a>
             </Button>
           </div>
         </div>
@@ -81,7 +82,7 @@ import {
           <div class='grid md:grid-cols-2 gap-6'>
             <Card className='border-destructive/20'>
               <CardContent className='p-6 space-y-2'>
-                <DollarSign className='w-10 h-10 text-destructive mb-2' />
+                <DollarSign className='w-10 h-10 text-primary mb-2' />
                 <h3 class='text-xl font-semibold'>Costos Prohibitivos</h3>
                 <p class='text-muted-foreground'>
                   Votaciones que cuestan hasta{' '}
@@ -93,7 +94,7 @@ import {
             </Card>
             <Card className='border-destructive/20'>
               <CardContent className='p-6 space-y-2'>
-                <Clock className='w-10 h-10 text-destructive mb-2' />
+                <Clock className='w-10 h-10 text-primary mb-2' />
                 <h3 class='text-xl font-semibold'>Procesos Lentos</h3>
                 <p class='text-muted-foreground'>
                   Procesos que <span class='text-foreground font-semibold'
@@ -104,7 +105,7 @@ import {
             </Card>
             <Card className='border-destructive/20'>
               <CardContent className='p-6 space-y-2'>
-                <Users className='w-10 h-10 text-destructive mb-2' />
+                <Users className='w-10 h-10 text-primary mb-2' />
                 <h3 class='text-xl font-semibold'>Quórums Inalcanzables</h3>
                 <p class='text-muted-foreground'>
                   Quórums que <span class='text-foreground font-semibold'
@@ -115,7 +116,7 @@ import {
             </Card>
             <Card className='border-destructive/20'>
               <CardContent className='p-6 space-y-2'>
-                <FileText className='w-10 h-10 text-destructive mb-2' />
+                <FileText className='w-10 h-10 text-primary mb-2' />
                 <h3 class='text-xl font-semibold'>Información Perdida</h3>
                 <p class='text-muted-foreground'>
                   Información <span class='text-foreground font-semibold'
@@ -247,15 +248,15 @@ import {
             >
               <Shield className='w-8 h-8 text-primary' />
             </div>
-            <span class='text-sm font-medium'>Auditado</span>
+            <span class='text-sm font-medium'>Seguro</span>
           </div>
           <div class='flex flex-col items-center gap-2'>
             <div
               class='w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center'
             >
-              <FileText className='w-8 h-8 text-primary' />
+              <SearchCheck className='w-8 h-8 text-primary' />
             </div>
-            <span class='text-sm font-medium'>Blockchain</span>
+            <span class='text-sm font-medium'>Transparente</span>
           </div>
         </div>
       </div>
@@ -268,7 +269,7 @@ import {
       <div class='max-w-5xl mx-auto space-y-12'>
         <div class='text-center space-y-4'>
           <h2 class='text-3xl md:text-5xl font-bold text-balance'>
-            Para Cada Institución Argentina
+            Para Cada Institución de Latinoamérica
           </h2>
         </div>
         <div class='grid md:grid-cols-3 gap-6'>
@@ -364,14 +365,14 @@ import {
           class='flex flex-col sm:flex-row items-center justify-center gap-4 pt-4'
         >
           <Button size='lg' variant='secondary' className='text-base px-8'>
-            Programar Demo
-          </Button>
+          <a href='https://tally.so/r/NpDWZB' target='_blank' rel="noopener noreferrer">Sumate a la lista</a>
+            </Button>
           <Button
             size='lg'
             variant='outline'
             className='text-base px-8 bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary'
           >
-            Contactar al Equipo
+              <a href='https://tally.so/r/eqDe1E' target='_blank' rel="noopener noreferrer">Participá del piloto</a>
           </Button>
         </div>
         <div class='pt-4'>
@@ -380,7 +381,7 @@ import {
               variant='link'
               className='text-primary-foreground/80 hover:text-primary-foreground'
             >
-              Ver Documentación →
+              Leer nuestro Blog →
             </Button>
           </a>
         </div>
@@ -405,19 +406,19 @@ import {
         </p>
         <div class='flex items-center gap-4'>
           <a
-            href='#'
+            href='https://github.com/votar-labs/votar'
             class='text-sm text-muted-foreground hover:text-foreground transition-colors'
           >
             GitHub
           </a>
-          <a
+          <!-- <a
             href='#'
             class='text-sm text-muted-foreground hover:text-foreground transition-colors'
           >
             Documentación
-          </a>
+          </a> -->
           <a
-            href='#'
+            href='mailto:mitch@votar.casa'
             class='text-sm text-muted-foreground hover:text-foreground transition-colors'
           >
             Contacto
