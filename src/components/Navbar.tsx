@@ -1,4 +1,4 @@
-import { Menu, Check } from "lucide-react";
+import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
@@ -46,19 +46,14 @@ const Navbar = ({
   className,
 }: NavbarProps) => {
   return (
-    <section className={cn("py-4 border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50", className)}>
+    <section className={cn("py-3 border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50", className)}>
       <div className="container mx-auto px-4">
         {/* Desktop Menu */}
         <nav className="hidden items-center justify-between lg:flex">
           <div className="flex items-center gap-6">
             {/* Logo */}
-            <a href={logo.url} className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-primary rounded-lg flex items-center justify-center">
-                <Check className="w-3 h-3 text-primary-foreground" />
-              </div>
-              <span className="text-lg font-semibold tracking-tighter">
-                {logo.title}
-              </span>
+            <a href={logo.url} className="flex items-center">
+              <img src="/votar-logo.png" alt={logo.alt} className="h-8 w-auto" />
             </a>
             <div className="flex items-center">
               <NavigationMenu>
@@ -78,10 +73,10 @@ const Navbar = ({
             </div>
           </div>
           <div className="flex gap-2 items-center">
-            <ModeToggle />
+            {/* <ModeToggle />
             <Button size="sm">
               Contactar
-            </Button>
+            </Button> */}
           </div>
         </nav>
 
@@ -89,13 +84,8 @@ const Navbar = ({
         <div className="block lg:hidden">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <a href={logo.url} className="flex items-center gap-2">
-               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <Check className="w-5 h-5 text-primary-foreground" />
-              </div>
-              <span className="text-lg font-semibold tracking-tighter">
-                {logo.title}
-              </span>
+            <a href={logo.url} className="flex items-center">
+              <img src="/votar-logo.png" alt={logo.alt} className="h-10 w-auto" />
             </a>
             <Sheet>
               <SheetTrigger asChild>
@@ -106,13 +96,8 @@ const Navbar = ({
               <SheetContent className="overflow-y-auto">
                 <SheetHeader>
                   <SheetTitle>
-                    <a href={logo.url} className="flex items-center gap-2">
-                       <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                        <Check className="w-5 h-5 text-primary-foreground" />
-                      </div>
-                      <span className="text-lg font-semibold tracking-tighter">
-                        {logo.title}
-                      </span>
+                    <a href={logo.url} className="flex items-center">
+                      <img src="/votar-logo.png" alt={logo.alt} className="h-10 w-auto" />
                     </a>
                   </SheetTitle>
                 </SheetHeader>

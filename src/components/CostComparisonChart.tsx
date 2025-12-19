@@ -33,11 +33,11 @@ const chartData = [
 const chartConfig = {
   traditional: {
     label: "Costo Tradicional (USD M)",
-    color: "var(--destructive)", 
+    color: "var(--primary)", 
   },
   votar: {
     label: "Costo VotAR (USD M)",
-    color: "var(--primary)",
+    color: "var(--accent)",
   },
 } satisfies ChartConfig
 
