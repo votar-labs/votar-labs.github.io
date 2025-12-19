@@ -53,7 +53,7 @@ const Navbar = ({
           <div className="flex items-center gap-6">
             {/* Logo */}
             <a href={logo.url} className="flex items-center">
-              <img src="/votar-logo.svg" alt={logo.alt} className="h-18 w-auto" />
+              <img src="/votar-logo.png" alt={logo.alt} className="h-8 w-auto" />
             </a>
             <div className="flex items-center">
               <NavigationMenu>
@@ -85,7 +85,7 @@ const Navbar = ({
           <div className="flex items-center justify-between">
             {/* Logo */}
             <a href={logo.url} className="flex items-center">
-              <img src="/votar-logo.svg" alt={logo.alt} className="h-10 w-auto" />
+              <img src="/votar-logo.png" alt={logo.alt} className="h-10 w-auto" />
             </a>
             <Sheet>
               <SheetTrigger asChild>
@@ -97,7 +97,7 @@ const Navbar = ({
                 <SheetHeader>
                   <SheetTitle>
                     <a href={logo.url} className="flex items-center">
-                      <img src="/votar-logo.svg" alt={logo.alt} className="h-10 w-auto" />
+                      <img src="/votar-logo.png" alt={logo.alt} className="h-10 w-auto" />
                     </a>
                   </SheetTitle>
                 </SheetHeader>
